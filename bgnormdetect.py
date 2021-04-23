@@ -5,7 +5,7 @@ import cv2
 inpath = "./MinuteMask/"
 outpath = "./BGDetections/"
 execution_path = os.getcwd()
-video_amount = 2
+video_amount = 6
 
 detector = ObjectDetection()
 detector.setModelTypeAsYOLOv3()

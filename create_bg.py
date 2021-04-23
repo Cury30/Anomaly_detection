@@ -12,7 +12,7 @@ MINUTEMASKDIR = "./MinuteMask/"
 INPUTVIDEOPATH = "./Dataset/"
 darktexfile=open("dark.txt","w")
 darkthreshold=290000
-video_amount = 2
+video_amount = 6
 
 
 

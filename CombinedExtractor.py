@@ -8,7 +8,7 @@ from statistics import variance
 extractor=""
 
 RESPATH="Result.txt"
-video_amount = 2
+video_amount = 6
 
 if len(sys.argv) > 2:
     print('You have specified too many arguments')
