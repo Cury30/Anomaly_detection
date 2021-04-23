@@ -58,7 +58,7 @@ python3 CombinedExtractor.py normal
 ### Step 4 Run the Crop Detector on the videos and the background samples (can be run in parallel)
 
 ```
-python3 cropdetect.py
+python3 zoomdetect.py
 python3 bgcropdetect.py
 ```
 
