@@ -7,7 +7,7 @@ from imageai.Detection import ObjectDetection
 
 TXTOUTPATH= "CropDetections/"
 #VIDEOPATH=os.environ['AICITYVIDEOPATH'] + "/test-data/"
-VIDEOPATH="/content/gdrive/My Drive/FONDOCYT/Anomaly-detections/AICity-CETCVLAB/Dataset/"
+VIDEOPATH="./Dataset/"
 WEIGHTPATH="yolo.h5"
 
 os.mkdir(TXTOUTPATH)
