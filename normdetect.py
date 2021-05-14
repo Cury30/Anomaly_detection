@@ -20,7 +20,7 @@ detector.setModelTypeAsYOLOv3()
 detector.setModelPath(WEIGHTPATH)
 detector.loadModel()
 custom = detector.CustomObjects(car=True, bus=True,truck=True)
-video_amount = 6
+video_amount = len(next(os.walk(VIDEOPATH))[2]) + 1
 print("Using Input Video Path : "+VIDEOPATH)
 
 for video_num in range(1,video_amount):

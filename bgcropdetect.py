@@ -6,7 +6,7 @@ import numpy as np
 
 INPATH = "./MinuteMask/"
 OUTPATH = "./BGCropDetections/"
-video_amount = 6
+video_amount = len(next(os.walk('./Dataset'))[2]) + 1
 
 if(os.path.exist(INPATH) and os.path.exists(OUTPATH)):
     os.mkdir(INPATH)

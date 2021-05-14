@@ -12,7 +12,7 @@ MINUTEMASKDIR = "./MinuteMask/"
 INPUTVIDEOPATH = "./Dataset/"
 darktexfile=open("dark.txt","w")
 darkthreshold=290000
-video_amount = 6
+video_amount = len(next(os.walk(INPUTVIDEOPATH))[2]) + 1
 
 
 
@@ -110,6 +110,22 @@ def create_bg(vidnum):
                     pixelsum+=sum(row)
                 if(pixelsum < darkthreshold):
                     darktexfile.write(str(vidnum)+"\n")
+        else:    #This part is just because of the limit on google collab. Shuldnt be here
+            maskcount+=1
+            mkdir_ifndef(MINUTEMASKDIR+str(vidnum))
+            total=0
+            avg = cv2.merge([bAvg, gAvg, rAvg]).astype("uint8")
+            cv2.imwrite(MINUTEMASKDIR+str(vidnum)+"/"+str(maskcount)+".png",avg)
+            (rAvg, gAvg, bAvg) = (None, None, None)
+            if(maskcount==1):
+                img=plt.imread(MINUTEMASKDIR+str(vidnum)+"/"+str(maskcount)+".png")
+                intensity = img.sum(axis=2)
+                pixelsum=0
+                for row in intensity:
+                    pixelsum+=sum(row)
+                if(pixelsum < darkthreshold):
+                    darktexfile.write(str(vidnum)+"\n")
+
     masksum=apply_filter(masksum)          
     cv2.imwrite(ROADMASKDIR+str(vidnum)+".png",masksum)
     cap.release()
