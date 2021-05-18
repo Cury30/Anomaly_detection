@@ -8,9 +8,11 @@ INPATH = "./MinuteMask/"
 OUTPATH = "./BGCropDetections/"
 video_amount = len(next(os.walk('./Dataset'))[2]) + 1
 
-if(os.path.exist(INPATH) and os.path.exists(OUTPATH)):
-    os.mkdir(INPATH)
-    os.mkdir(OUTPATH)
+def mkdir_ifndef(dirname):
+    if not os.path.isdir(dirname):
+        os.mkdir(dirname)
+
+mkdir_ifndef(OUTPATH)
 
 def crop_layer(x_in,nr=2,nc=4):
     columns = math.ceil(x_in.shape[1]/nc)
