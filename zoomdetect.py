@@ -10,7 +10,9 @@ TXTOUTPATH= "CropDetections/"
 VIDEOPATH="./Dataset/"
 WEIGHTPATH="yolo.h5"
 
-os.mkdir(TXTOUTPATH)
+if not os.path.isdir(TXTOUTPATH):
+    os.mkdir(TXTOUTPATH)
+
 detector = ObjectDetection()
 detector.setModelTypeAsYOLOv3()
 detector.setModelPath(WEIGHTPATH)
