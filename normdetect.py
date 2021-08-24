@@ -6,9 +6,12 @@ import cv2
 from imageai.Detection import ObjectDetection
 
 #VIDEOPATH=os.environ['AICITYVIDEOPATH'] + "/test-data/"
-VIDEOPATH= "./Dataset/"
-WEIGHTPATH="./yolo.h5"
-TXTOUTPATH="Detections/"
+
+model_path = str(sys.argv[1])
+
+VIDEOPATH= model_path + "/Dataset/"
+WEIGHTPATH= model_path + "/yolo.h5"
+TXTOUTPATH=model_path + "/Detections/"
 
 if(os.path.exists(TXTOUTPATH)):
     rmtree(TXTOUTPATH)
