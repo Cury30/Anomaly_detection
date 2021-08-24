@@ -9,9 +9,11 @@ from imageai.Detection import ObjectDetection
 
 model_path = str(sys.argv[1])
 
-VIDEOPATH= model_path + "/Dataset/"
-WEIGHTPATH= model_path + "/yolo.h5"
-TXTOUTPATH=model_path + "/Detections/"
+VIDEOPATH = model_path + "/Dataset/"
+WEIGHTPATH = model_path + "/yolo.h5"
+TXTOUTPATH = model_path + "/Detections/"
+
+    
 
 if(os.path.exists(TXTOUTPATH)):
     rmtree(TXTOUTPATH)

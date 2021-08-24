@@ -14,12 +14,14 @@ if len(sys.argv) > 2:
     print('You have specified too many arguments')
     sys.exit()
 
-if len(sys.argv) < 2:
-    extractor = "both"    
+if len(sys.argv) == 1:
+    extractor = "both"
+    model_path = str(sys.argv[1])    
     if os.path.exists(RESPATH):
         os.remove(RESPATH)    
 else :
-    extractor = sys.argv[1]
+    extractor = str(sys.argv[1])
+    model_path = str(sys.argv[2])
 
 RESULTFILE=open(RESPATH,"a+")
 

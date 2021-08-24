@@ -1,12 +1,19 @@
 from imageai.Detection import ObjectDetection
 import os
+import sys
 import cv2
 import math
 import numpy as np
 
-INPATH = "./MinuteMask/"
-OUTPATH = "./BGCropDetections/"
-video_amount = len(next(os.walk('./Dataset'))[2]) + 1
+model_path = str(sys.argv[1])
+
+INPATH = model_path + "/MinuteMask/"
+OUTPATH = model_path + "/BGCropDetections/"
+dataset_path = "/Dataset"
+    
+
+
+video_amount = len(next(os.walk(model_path+dataset_path))[2]) + 1
 
 def mkdir_ifndef(dirname):
     if not os.path.isdir(dirname):

@@ -5,10 +5,11 @@ import math
 import cv2
 from imageai.Detection import ObjectDetection
 
-TXTOUTPATH= "CropDetections/"
+model_path = str(sys.argv[1])
+TXTOUTPATH= model_path + "CropDetections/"
 #VIDEOPATH=os.environ['AICITYVIDEOPATH'] + "/test-data/"
-VIDEOPATH="./Dataset/"
-WEIGHTPATH="yolo.h5"
+VIDEOPATH= model_path + "/Dataset/"
+WEIGHTPATH= model_path + "/yolo.h5"
 
 if not os.path.isdir(TXTOUTPATH):
     os.mkdir(TXTOUTPATH)

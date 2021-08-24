@@ -1,11 +1,14 @@
 from imageai.Detection import ObjectDetection
 import os
 import cv2
+import sys
 
-inpath = "./MinuteMask/"
-outpath = "./BGDetections/"
+
+model_path = str(sys.argv[1])
+inpath = model_path + "/MinuteMask/"
+outpath = model_path + "/BGDetections/"
 execution_path = os.getcwd()
-video_amount = len(next(os.walk('./Dataset'))[2]) + 1
+video_amount = len(next(os.walk(model_path + '/Dataset'))[2]) + 1
 
 detector = ObjectDetection()
 detector.setModelTypeAsYOLOv3()

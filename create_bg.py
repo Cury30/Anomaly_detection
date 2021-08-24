@@ -3,13 +3,16 @@ import os
 import numpy as np
 import argparse
 import uuid
+import sys
 import scipy.spatial
 import matplotlib.pyplot as plt
 
-ROADMASKDIR = "./RoadMask/"
-MINUTEMASKDIR = "./MinuteMask/"
+
+model_path = str(sys.argv[1])
+ROADMASKDIR = model_path + "/RoadMask/"
+MINUTEMASKDIR = model_path + "/MinuteMask/"
 #INPUTVIDEOPATH = os.environ['AICITYVIDEOPATH'] + "/test-data/"
-INPUTVIDEOPATH = "./Dataset/"
+INPUTVIDEOPATH = model_path + "/Dataset/"
 darktexfile=open("dark.txt","w")
 darkthreshold=290000
 video_amount = len(next(os.walk(INPUTVIDEOPATH))[2]) + 1
