@@ -21,8 +21,8 @@ def renombrar(files, path):
     for file in files:
         contador+=1
         delimitador = file.find('.')
-        nuevo_nombre = path + "\\" + str(contador) + file[delimitador:]
-        os.rename(path + "\\" + file, nuevo_nombre)
+        nuevo_nombre = path + str(contador) + file[delimitador:]
+        os.rename(path + file, nuevo_nombre)
 
 archivos = listar_archivos(VIDEOPATH)
 renombrar(archivos,VIDEOPATH)
