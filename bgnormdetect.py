@@ -17,21 +17,6 @@ detector.setModelPath( os.path.join(execution_path , "./yolo.h5"))
 detector.loadModel()
 custom = detector.CustomObjects(car=True, bus=True,truck=True)
 
-def listar_archivos(ruta):
-    return [obj.name for obj in os.scandir(ruta) if obj.is_file()]
-
-def renombrar(files, path):
-    contador = 0
-    for file in files:
-        contador+=1
-        delimitador = file.find('.')
-        nuevo_nombre = path + "\\" + str(contador) + file[delimitador:]
-        os.rename(path + "\\" + file, nuevo_nombre)
-
-archivos = listar_archivos(dataset_path)
-renombrar(archivos,dataset_path)
-
-
 for i in range(1,video_amount):
     Len = len(os.listdir(os.path.join(inpath,str(i))))
     if(not os.path.exists(outpath+str(i))): 

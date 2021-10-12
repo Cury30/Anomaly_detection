@@ -13,6 +13,19 @@ VIDEOPATH = model_path + "/Dataset/"
 WEIGHTPATH = model_path + "/yolo.h5"
 TXTOUTPATH = model_path + "/Detections/"
 
+def listar_archivos(ruta):
+    return [obj.name for obj in os.scandir(ruta) if obj.is_file()]
+
+def renombrar(files, path):
+    contador = 0
+    for file in files:
+        contador+=1
+        delimitador = file.find('.')
+        nuevo_nombre = path + "\\" + str(contador) + file[delimitador:]
+        os.rename(path + "\\" + file, nuevo_nombre)
+
+archivos = listar_archivos(VIDEOPATH)
+renombrar(archivos,VIDEOPATH)
     
 
 if(os.path.exists(TXTOUTPATH)):
